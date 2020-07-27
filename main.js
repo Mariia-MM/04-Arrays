@@ -5,13 +5,12 @@ const themes = [
   "Алгоритми і структури даних",
 ];
 const marks = [4, 5, 5, 3, 4, 5];
-let studGirl = [];
-let studBoy = [];
 let count = 0;
-//debugger;
 
 const getPairs = () => {
   let newArr = students.slice();
+  let studGirl = [];
+  let studBoy = [];
   for (let i = 0; i < newArr.length; i++) {
     if (
       newArr[i].toString(newArr[i]).endsWith(`а`) ||
@@ -28,30 +27,38 @@ const getPairs = () => {
     newStudG = studGirl.pop();
 
     count = studNew.push(newStudB.split(`,`).concat(newStudG));
-    //studNew.join(`+`);
   }
   return studNew;
 };
-//console.log(getPairs());
+
 const pairs = getPairs(students);
 console.log(pairs);
 
 const getPairTheme = () => {
   let newArr = pairs.slice();
   let newThemes = themes.slice();
-  //   console.log(newArr);
-  //   console.log(newThemes);
-  let count = 0;
   let pairTheme = [];
+
   while (newArr.length > 0) {
     newPair = newArr.pop().join(` i `);
-    // console.log(newPair);
     newTheme = newThemes.pop();
-
-    // console.log(newTheme);
 
     count = pairTheme.push(newPair.split(`,`).concat(newTheme));
   }
   return pairTheme;
 };
 console.log(getPairTheme());
+
+const getStudMark = () => {
+  let newStudents = students.slice();
+  let newMarks = marks.slice();
+  let studentMark = [];
+
+  while (newStudents.length > 0) {
+    newStud = newStudents.shift();
+    newMark = newMarks.shift();
+    count = studentMark.push(newStud.split(`,`).concat(newMark));
+  }
+  return studentMark;
+};
+console.log(getStudMark(students));
