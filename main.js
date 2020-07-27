@@ -6,6 +6,7 @@ const themes = [
 ];
 const marks = [4, 5, 5, 3, 4, 5];
 let count = 0;
+let pairTheme = [];
 
 const getPairs = () => {
   let newArr = students.slice();
@@ -37,7 +38,6 @@ console.log(pairs);
 const getPairTheme = () => {
   let newArr = pairs.slice();
   let newThemes = themes.slice();
-  let pairTheme = [];
 
   while (newArr.length > 0) {
     newPair = newArr.pop().join(` i `);
@@ -62,3 +62,15 @@ const getStudMark = () => {
   return studentMark;
 };
 console.log(getStudMark(students));
+
+const getPairProjectMark = () => {
+  let newArr = pairTheme.slice();
+  let pairProjectMark = [];
+  while (newArr.length > 0) {
+    let m = Math.trunc(Math.random() * (6 - 1) + 1);
+    newPair = newArr.shift();
+    count = pairProjectMark.push(newPair.concat(m));
+  }
+  return pairProjectMark;
+};
+console.log(getPairProjectMark());
