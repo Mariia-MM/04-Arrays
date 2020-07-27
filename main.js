@@ -24,13 +24,34 @@ const getPairs = () => {
   }
   let studNew = [];
   while (studBoy.length > 0) {
-    newStud1 = studBoy.pop();
-    newStud2 = studGirl.pop();
+    newStudB = studBoy.pop();
+    newStudG = studGirl.pop();
 
-    count = studNew.push(newStud1.split(`,`).concat(newStud2));
+    count = studNew.push(newStudB.split(`,`).concat(newStudG));
+    //studNew.join(`+`);
   }
   return studNew;
 };
 //console.log(getPairs());
 const pairs = getPairs(students);
 console.log(pairs);
+
+const getPairTheme = () => {
+  let newArr = pairs.slice();
+  let newThemes = themes.slice();
+  //   console.log(newArr);
+  //   console.log(newThemes);
+  let count = 0;
+  let pairTheme = [];
+  while (newArr.length > 0) {
+    newPair = newArr.pop().join(` i `);
+    // console.log(newPair);
+    newTheme = newThemes.pop();
+
+    // console.log(newTheme);
+
+    count = pairTheme.push(newPair.split(`,`).concat(newTheme));
+  }
+  return pairTheme;
+};
+console.log(getPairTheme());
